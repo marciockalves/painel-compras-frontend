@@ -1,0 +1,19 @@
+.teclado{
+    padding: 50px;
+    margin: 10px;  
+}
+
+.tecla{
+    text-align: center;
+   
+    font-size: 24px;
+    font-weight: bolder;
+}
+.container{
+    max-width: 500px;
+}   
+
+.line-butons{
+    padding: 10px;
+}
+

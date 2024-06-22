@@ -1,0 +1,30 @@
+<div class="container" align="center">
+    <div class="row justify-content-center espacamento-vertical">
+        <form [formGroup]="formDocument" >
+        <div class="col-lg-4 col-md-4 col-sm-4 ">
+           
+            <mat-form-field appearance="outline">
+                <mat-label>Digite seu CPF</mat-label>
+                <input 
+                matInput 
+                type="text"
+                mask="000.000.000-00"
+                placeholder="CPF"
+                formControlName="document"
+                (input)="updateMask()"
+                
+                >
+                
+                <mat-hint *ngIf="isDocumentInvalid"></mat-hint>
+              </mat-form-field>
+           
+        </div>
+        <div class="col-lg-8 col-md-8 col-sm-8">
+            <app-teclado-numerico 
+            (sendKeyEvent)="recieveEventKey($event)"
+            [disabledButton]="formDocument.invalid"
+            ></app-teclado-numerico>
+        </div>
+    </form>
+    </div>
+</div>
