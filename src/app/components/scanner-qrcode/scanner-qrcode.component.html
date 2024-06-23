@@ -1,0 +1,16 @@
+<section>
+    <zxing-scanner
+  [formats]="allowedFormats"
+  (scanSuccess)="handleQrCodeResult($event)"
+  [torch]="torchEnabled"
+  [device]="currentDevice"
+  (camerasFound)="camerasFoundHandler($event)"
+  (camerasNotFound)="camerasNotFoundHandler($event)"
+  (permissionResponse)="handlePermissionResponse($event)">
+</zxing-scanner>
+
+<div *ngIf="qrResult !==undefined    ">
+  <p>Resultado do QR Code: {{ qrResult }}</p>
+</div>
+</section>
+
