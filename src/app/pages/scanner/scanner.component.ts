@@ -10,4 +10,6 @@ import { ScannerQrcodeComponent } from '../../components/scanner-qrcode/scanner-
 })
 export class ScannerComponent {
 
+
+  
 }

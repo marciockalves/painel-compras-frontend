@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { WebsocketService } from '../../services/websocket.service';
 
 @Component({
   selector: 'app-lista-compras',
@@ -9,4 +10,17 @@ import { Component } from '@angular/core';
 })
 export class ListaComprasComponent {
 
+  constructor(public websocketService: WebsocketService){}
+  public resultScanner:string = '';
+
+  get getResultScanner(){
+   
+    this.websocketService.getMessage().subscribe(event=>{
+      if(event){
+        this.resultScanner = event;
+      }
+    })
+    
+    return this.resultScanner;
+  }
 }

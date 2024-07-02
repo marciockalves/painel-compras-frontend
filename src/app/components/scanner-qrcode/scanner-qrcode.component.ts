@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { ZXingScannerModule } from '@zxing/ngx-scanner';
 import { BarcodeFormat } from '@zxing/library';
 import { NgIf } from '@angular/common';
+import { WebsocketService } from '../../services/websocket.service';
 
 
 @Component({
@@ -12,15 +13,20 @@ import { NgIf } from '@angular/common';
   styleUrl: './scanner-qrcode.component.css'
 })
 export class ScannerQrcodeComponent {
+ 
   torchEnabled = false;
   public currentDevice: MediaDeviceInfo | undefined;
   public hasPermission: boolean = false;
   public qrResult: string | undefined;
   public allowedFormats = [ BarcodeFormat.QR_CODE, BarcodeFormat.EAN_13, BarcodeFormat.CODE_128, BarcodeFormat.DATA_MATRIX /*, ...*/ ];
   
+  constructor(public websocketService: WebsocketService){}
 
   handleQrCodeResult(result: string) {
+
+    this.websocketService.sendMessage({code: result});
     this.qrResult = result;
+    
   }
 
   camerasFoundHandler(devices: MediaDeviceInfo[]): void {
