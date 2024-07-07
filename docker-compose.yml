@@ -1,0 +1,11 @@
+version: '3'
+services:
+  angular-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./certificates:/etc/nginx/certificates
+    ports:
+      - "80:80"
+      - "443:443"

@@ -10,7 +10,9 @@ import { WebsocketService } from '../../services/websocket.service';
 })
 export class ListaComprasComponent {
 
-  constructor(public websocketService: WebsocketService){}
+  constructor(public websocketService: WebsocketService){
+    this.websocketService.sendMessage({code:'texto'});
+  }
   public resultScanner:string = '';
 
   get getResultScanner(){

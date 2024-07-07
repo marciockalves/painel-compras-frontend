@@ -24,7 +24,8 @@ export class EntradaComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    
     
   
   ){
